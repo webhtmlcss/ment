@@ -26,21 +26,23 @@
                     <span :class="{'lightColor': item.answer == 4}" v-if="item.item4!==''">D.{{item.item4}}</span>
                 </div>
             </el-form-item>
-            <el-form-item v-show="sizeForm.answers.length">
+            <!-- <el-form-item v-show="sizeForm.answers.length">
                 <ul>
                     <div>答案：<span style="color:#F56C6C">* 注：因答案接口为假数据固不能作为真实答案进行参考，以实际教科书为准</span></div>
                     <span style="display:inline-block;margin:0 20px 0 0;" v-for="(item,index) in sizeForm.answers" :key="index">{{index+1}}. {{item}}</span>
                 </ul>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item size="large" class="botBtns" v-show="sizeForm.datas.length">
-                <el-button type="primary" :disabled="sizeForm.datas.length == 0" size="mini" @click="getAnswers()">查看答案</el-button>
+                <el-button type="primary" size="mini" @click="getAnswers()">查看答案</el-button>
             </el-form-item>
         </el-form>
+        <car-prop v-if="dialogVisible" @consoleProp="consoleProp" :data="sizeForm.answers"></car-prop>
     </div>
 </template>
 
 <script>
     //import *** from "组件路径";
+    import carProp from "./carProp";
     export default {
         data () {
             return {
@@ -132,7 +134,8 @@
                         ]
                     }
                 ],
-                selectedOptions: []
+                selectedOptions: [],
+                dialogVisible: false,
             }
         },
         computed:{
@@ -161,6 +164,7 @@
                 })
             },
             getAnswers(){
+                this.dialogVisible = true;
                 this.sizeForm.answers = [];
                 let params = {
                     url: 'jztk/answers',
@@ -175,12 +179,16 @@
                     }
                 })
             },
+            consoleProp(){
+                this.dialogVisible = false;
+            },
             handleChange(val){
                 this.selectedOptions = val
                 this.getQuestion();
             }
         },
         components: {
+            carProp
         }
     }
 </script>
