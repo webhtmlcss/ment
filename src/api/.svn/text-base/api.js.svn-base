@@ -1,0 +1,47 @@
+import axios from 'axios'
+import config from './config'
+const base = '/org/business/'   // 更改的base
+// http request 拦截器
+axios.interceptors.request.use(
+  config => {
+      config.headers.developToken = '000006';
+      config.headers.tokenPassword = '1qaz2wsx';
+      return config;
+  },
+  err => {
+      return Promise.reject(err);
+});
+
+class API {
+  post (params, callback, errcallback) {
+    config.data = params.data||{}
+    return axios.post(`${base}${params.url}.do`, config.data, config).then(res =>{
+      let rst = res.data
+      if (rst.code === '000000' || rst.code === '999999') {
+        callback&&callback(rst.result||{})
+      }else{
+        console.log(rst.message)
+        errcallback&&errcallback(rst.message||{})
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+  get (params, callback, errcallback) {
+    config.data = params.data||{}
+    return axios.get(`${base}${params.url}.do`, { params: config.data }, config).then(res => {
+      let rst = res.data
+      if (rst.code === '000000' || rst.code === '999999') {
+        callback&&callback(rst.result||{})
+      }else{
+        console.log(rst.message)
+        errcallback&&errcallback(rst.message||{})
+      }
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+}
+const api = new API()
+
+export default api
