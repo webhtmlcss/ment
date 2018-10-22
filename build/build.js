@@ -11,7 +11,8 @@ const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 
-const spinner = ora('building for production...')
+// const spinner = ora('building for production...')
+const spinner = ora('正在打包请稍候...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
@@ -33,9 +34,13 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     }
 
     console.log(chalk.cyan('  Build complete.\n'))
+    // console.log(chalk.yellow(
+    //   '  Tip: built files are meant to be served over an HTTP server.\n' +
+    //   '  Opening index.html over file:// won\'t work.\n'
+    // ))
     console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
+      '  提示: 构建文件是要在HTTP服务器上运行的.\n' +
+      '  不能直接运行html文件.\n'
     ))
   })
 })

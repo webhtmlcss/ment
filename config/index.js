@@ -35,6 +35,7 @@ module.exports = {
     devtool: '#source-map',
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
-    bundleAnalyzerReport: process.env.npm_config_report
+    bundleAnalyzerReport: process.env.npm_config_report,
+    port: 9000,
   }
 }
