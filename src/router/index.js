@@ -14,27 +14,22 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
       component: home
     },
     {
       path: '/home',
-      name: 'home',
       component: home
     },
     {
       path: '/date',
-      name: 'date',
-      component: date
+      component:date
     },
     {
       path: '/car',
-      name: 'car',
       component: car
     },
     {
       path: '/chart',
-      name: 'chart',
       component: chart
     }
   ]

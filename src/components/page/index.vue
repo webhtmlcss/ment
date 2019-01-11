@@ -2,21 +2,24 @@
     <div id="portal">
         <div class="top" >
             <span class="top-name">这是一些小Demo</span>
-            <ul class="top-user clearfix">
-                <li class="user-more">
-                    <a href="javascript:;">{{ userName }}</a>
-                    <ul>
-                        <li><a :href="setting">个人设置</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div style="float:right;width:auto">
+                <div class="userImg"><img :src='userLogo'></div>
+                <ul class="top-user clearfix">
+                    <li class="user-more">
+                        <a href="javascript:;">{{ userName }}</a>
+                        <ul>
+                            <li><a :href="setting">个人设置</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="main">
             <div class="left">
                 <sidebar></sidebar>
             </div>
             <div class="content">
-                <router-view class=""></router-view>
+                <router-view class="aaaaaaa"></router-view>
             </div>
         </div>
     </div>
@@ -32,6 +35,7 @@ export default {
     name: 'portal',
     data() {
         return {
+            userLogo: '../../../static/qqImg.jpg',  //当前登录头像
             userName: '放学别走',  //当前登录用户名
             setting: config.settingURL,  //个人设置URL
         }
@@ -54,7 +58,6 @@ export default {
     padding-top: 0;
 }
 
-
 .top {
     height: 55px;
     background: #4f94e7;
@@ -64,6 +67,18 @@ export default {
     right: 0;
     z-index: 1;
     box-shadow: 0 1px 2px #b2b2b2;
+}
+
+.userImg{
+    display:inline-block;
+    vertical-align:top;
+}
+
+.userImg img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    margin-top:2px;
 }
 
 .content {
@@ -89,10 +104,12 @@ a:active {
 .top-name {
     float: left;
 }
+
 .top-menu{
 	height: 55px;
 	overflow: hidden;
 }
+
 .top-menu a{
 	/*display: inline-block;*/
 	float: left;
@@ -110,9 +127,13 @@ a:active {
 	height: 22px;
 }
 .top-user{
+    display:inline-block;
     list-style-type: none;
     margin: 0;
+    padding-left: 0;
+    vertical-align:middle;
 }
+
 .top-user>li {
     float: right;
     list-style-type: none;
@@ -121,32 +142,39 @@ a:active {
 .top-user {
     padding-right: 21px;
 }
+
 .top-user>li:hover{
     background: #4b8ad8;
 }
+
 .top-user .user-more{
 	width: 100px;
 }
+
 .top-user .user-more ul {
     background: #FFFFFF;
     display: none;
     padding: 0;
     margin: 0;
 }
+
 .top-user .user-more ul li{
     margin: 0;
     padding: 0;
 }
+
 .top-user .user-more:hover ul {
     display: block;
     border:1px solid #E6E6E6;
     list-style-type: none;
 }
+
 .top-user .user-more ul li a{
 	display: block;
 	cursor: pointer;
 	color: #000000;
 }
+
 .top-user .user-more ul li:hover{
 	background: #e6e6e6;
 
