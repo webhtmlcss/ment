@@ -2,7 +2,7 @@
     <div id="portal">
         <div class="top" >
             <span class="top-name">这是一些小Demo</span>
-            <div style="float:right;width:auto">
+            <div class="topInfo">
                 <div class="userImg"><img :src='userLogo'></div>
                 <ul class="top-user clearfix">
                     <li class="user-more">
@@ -125,6 +125,10 @@ a:active {
 }
 .top-menu a img{
 	height: 22px;
+}
+.topInfo{
+    float:right;
+    width:auto
 }
 .top-user{
     display:inline-block;
