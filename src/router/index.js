@@ -5,6 +5,7 @@ import home from '@components/page/home/home'
 import date from '@components/page/date/date'
 import car from '@components/page/car/car'
 import chart from '@components/page/chart/chart'
+import dictionary from '@components/page/dictionary/dictionary'
 
 Vue.use(Router)
 
@@ -31,6 +32,10 @@ export default new Router({
     {
       path: '/chart',
       component: chart
+    },
+    {
+      path: '/dictionary',
+      component: dictionary
     }
   ]
 })

@@ -37,6 +37,10 @@ export default {
                     {
                         name: '二维码',
                         url: '/chart'
+                    },
+                    {
+                        name: '新华字典',
+                        url: '/dictionary'
                     }
                 ]
             }]
