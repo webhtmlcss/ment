@@ -1,14 +1,16 @@
 <template>
     <div class="componentPage" style="padding-bottom: 100px;">
+        <!-- 重置 -->
+        <el-button type="primary" size="mini" @click="reset('sizeForm')">重置</el-button>
         <img src="../../../assets/images/bg.jpg" alt="">
         <el-form ref="form" :model="sizeForm" label-width="80px" size="mini" v-loading="isLoading">
             <el-form-item>
                 <el-cascader
                     :options="options"
-                    v-model="selectedOptions"
+                    v-model="sizeForm.selectedOptions"
                     @change="handleChange">
                 </el-cascader>
-                <span style="color:#F56C6C" v-show="this.selectedOptions == ''">* 请选择科目类型、驾照类型、题目类型</span>
+                <span style="color:#F56C6C" v-show="this.sizeForm.selectedOptions == ''">* 请选择科目类型、驾照类型、题目类型</span>
             </el-form-item>
             <el-form-item v-for="(item,index) in sizeForm.datas" :key="index">
                 <div class="content"><span>{{index+1}}.</span>{{item.question}}<span style="color:#409EFF">(提示：{{item.explains}})</span></div>
@@ -51,6 +53,7 @@
                 sizeForm: {
                     datas: [],
                     answers: [],
+                    selectedOptions: []
                 },
                 options: [
                     {
@@ -134,15 +137,21 @@
                         ]
                     }
                 ],
-                selectedOptions: [],
                 dialogVisible: false,
             }
+        },
+        created () {
+            this.form = JSON.parse(JSON.stringify(this.$data))
         },
         computed:{
         },
         mounted () {
         },
         methods: {
+            reset(key){
+                if('string' !== typeof key) return;
+                this[key] = JSON.parse(JSON.stringify(this.form[key]))
+            },
             getQuestion () {
                 this.isLoading = true;
                 this.sizeForm.answers = [];
@@ -150,9 +159,9 @@
                     url:'jztk/query',
                     data:{
                         key: 'ce010760e7c6d2c810aaef4b21c19688',
-                        subject: this.selectedOptions[0],
-                        model: this.selectedOptions[1],
-                        testType: this.selectedOptions[2]
+                        subject: this.sizeForm.selectedOptions[0],
+                        model: this.sizeForm.selectedOptions[1],
+                        testType: this.sizeForm.selectedOptions[2]
                     }
                 }
                 this.api.post(params,res=>{
@@ -183,7 +192,7 @@
                 this.dialogVisible = false;
             },
             handleChange(val){
-                this.selectedOptions = val
+                this.sizeForm.selectedOptions = val
                 this.getQuestion();
             }
         },
