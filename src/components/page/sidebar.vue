@@ -41,6 +41,10 @@ export default {
                     {
                         name: '新华字典',
                         url: '/dictionary'
+                    },
+                    {
+                        name: '邮箱',
+                        url: '/email'
                     }
                 ]
             }]

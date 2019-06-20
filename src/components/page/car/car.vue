@@ -1,7 +1,7 @@
 <template>
     <div class="componentPage" style="padding-bottom: 100px;">
         <!-- 重置 -->
-        <el-button type="primary" size="mini" @click="reset('sizeForm')">重置11</el-button>
+        <el-button type="primary" size="mini" @click="reset('sizeForm')" :class="aa">重置11</el-button>
         <img src="../../../assets/images/bg.jpg" alt="">
         <el-form ref="form" :model="sizeForm" label-width="80px" size="mini" v-loading="isLoading">
             <el-form-item>
@@ -45,6 +45,7 @@
 <script>
     //import *** from "组件路径";
     import carProp from "./carProp";
+    import axios from 'axios';
     export default {
         data () {
             return {
@@ -138,12 +139,16 @@
                     }
                 ],
                 dialogVisible: false,
+                xx: false
             }
         },
         created () {
             this.form = JSON.parse(JSON.stringify(this.$data))
         },
         computed:{
+            aa(){
+                return this.xx ? 'addClass' : ''
+            }
         },
         mounted () {
         },
@@ -151,6 +156,7 @@
             reset(key){
                 if('string' !== typeof key) return;
                 this[key] = JSON.parse(JSON.stringify(this.form[key]))
+                this.xx = false;
             },
             getQuestion () {
                 this.isLoading = true;
@@ -169,6 +175,7 @@
                         this.idsArr.push(item.id);
                     })
                     this.sizeForm.datas = res
+                    this.xx = true;
                     this.isLoading = false;
                 })
             },
@@ -223,5 +230,8 @@
     }
     .lightColor{
         color: #67C23A;
+    }
+    .componentPage .componentPage .el-dialog{
+        background: red;
     }
 </style>
