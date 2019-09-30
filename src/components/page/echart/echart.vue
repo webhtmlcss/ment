@@ -37,7 +37,7 @@
         }
     },
     legend: {
-        data: ['祖','国','我','爱','你']
+        data: ['祖','国','我','爱','你'] 
     },
     calculable: true,
     series: [
