@@ -6,6 +6,9 @@ import date from '@components/page/date/date'
 import car from '@components/page/car/car'
 import chart from '@components/page/chart/chart'
 import dictionary from '@components/page/dictionary/dictionary'
+import issueList from '@components/page/issueList/issueList'
+import wechart from '@components/page/wechart/weChatEmpower'
+import echart from '@components/page/echart/echart'
 
 Vue.use(Router)
 
@@ -36,6 +39,18 @@ export default new Router({
     {
       path: '/dictionary',
       component: dictionary
+    },
+    {
+      path: '/issueList',
+      component: issueList
+    },
+    {
+      path: '/wechart',
+      component: wechart
+    },
+    {
+      path: '/echart',
+      component: echart
     }
   ]
 })

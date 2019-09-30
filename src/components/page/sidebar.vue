@@ -45,6 +45,18 @@ export default {
                     {
                         name: '邮箱',
                         url: '/email'
+                    },
+                    {
+                        name: '营销签名列表',
+                        url: '/issueList'
+                    },
+                    {
+                        name: '微信授权',
+                        url: '/wechart'
+                    },
+                    {
+                        name: 'echart',
+                        url: '/echart'
                     }
                 ]
             }]

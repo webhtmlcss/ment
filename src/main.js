@@ -7,7 +7,9 @@ import api from '@/api/api'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/style.css'
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts
 Vue.prototype.api = api
 Vue.config.productionTip = false
 Vue.use(ElementUI)
