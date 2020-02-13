@@ -9,13 +9,13 @@ import dictionary from '@components/page/dictionary/dictionary'
 import issueList from '@components/page/issueList/issueList'
 import wechart from '@components/page/wechart/weChatEmpower'
 import echart from '@components/page/echart/echart'
+import iviewTimer from '@components/page/iview/timer'
+import screen from '@components/page/screen/index'
+import diqu from '@components/page/diqu/diqu'
 
 Vue.use(Router)
 
-export default new Router({
-  // mode: 'history',
-  // base: '/templets/vue/',  //添加的地方
-  routes: [
+const routes = [
     {
       path: '/',
       component: home
@@ -51,6 +51,25 @@ export default new Router({
     {
       path: '/echart',
       component: echart
+    },
+    {
+      path: '/timer',
+      component: iviewTimer
+    },
+    {
+      path: '/screen',
+      component: screen
+    },
+    {
+      path: '/diqu',
+      component: diqu
     }
   ]
+
+const router = new Router({
+  mode: 'history',
+  // base: '/templets/vue/',  //添加的地方
+  routes 
 })
+
+export default router

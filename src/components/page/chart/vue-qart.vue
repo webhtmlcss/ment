@@ -2,6 +2,7 @@
     <div>
         <div ref="qart"></div>
         <button @click="convertToImage" v-if="download.visible" v-bind:style="download.style">{{download.text}}</button>
+        <button @click="aaa">给兄弟传值</button>
     </div>
 </template>
 
@@ -42,6 +43,9 @@ export default {
   },
 
   methods: {
+    aaa(){
+      $eventHub.$emit('sendData',123123)
+    },
     renderQrcode(config) {
       this.qart = new QArt(config);
       this.qart.make(this.$refs.qart);

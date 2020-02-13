@@ -15,6 +15,14 @@
     import VueQArt from './vue-qart.vue';
     // import VueQArt from 'vue-qart'
     export default {
+        created () {
+            $eventHub.$on('sendData',this.brother)
+        },
+        methods: {
+            brother(val){
+                console.log(val,'兄弟数据')
+            }
+        },
         components: {
             VueQArt,
         },
