@@ -12,10 +12,13 @@ import iView from 'iview';
 import 'iview/dist/styles/iview.css'; // 使用 CSS
 import Vuex from 'Vuex';
 import store from "./store";
+import 'vue-area-linkage/dist/index.css'; // 样式
+import VueAreaLinkage from 'vue-area-linkage';
 
 Vue.prototype.$echarts = echarts
 Vue.prototype.api = api
 Vue.config.productionTip = false
+Vue.use(VueAreaLinkage)
 Vue.use(ElementUI)
 Vue.use(iView);
 Vue.use(Vuex)

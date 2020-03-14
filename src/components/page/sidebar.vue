@@ -66,6 +66,14 @@ export default {
                         {
                             name: '地区',
                             url: '/diqu'
+                        },
+                        {
+                            name: 'elementUI--Tree',
+                            url: '/tree'
+                        },
+                        {
+                            name: 'jgfz',
+                            url: '/jgfz'
                         }
                     ]
                 },
@@ -82,6 +90,11 @@ export default {
                 }
             ]
         }
+    },
+    created () {
+      this.$store.dispatch('list',this.menu);  
+    },
+    mounted () {
     },
     methods: {
     }

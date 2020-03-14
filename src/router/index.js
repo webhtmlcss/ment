@@ -12,6 +12,8 @@ import echart from '@components/page/echart/echart'
 import iviewTimer from '@components/page/iview/timer'
 import screen from '@components/page/screen/index'
 import diqu from '@components/page/diqu/diqu'
+import tree from '@components/page/tree/tree'
+import jgfz from '@components/page/jgfz/index'
 
 Vue.use(Router)
 
@@ -63,6 +65,14 @@ const routes = [
     {
       path: '/diqu',
       component: diqu
+    },
+    {
+      path: '/tree',
+      component: tree
+    },
+    {
+      path: '/jgfz',
+      component: jgfz
     }
   ]
 
