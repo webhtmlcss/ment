@@ -249,8 +249,9 @@
                 this.indexChange = this.ruleForm.bigData.indexOf(item);
                 this.$nextTick(()=>{
                     this.$refs.dq.$refs.tree.setCheckedKeys([])
+                    console.log(this.areaDataObj,'this.areaDataObj');
                     for(var i in this.areaDataObj){
-                        if(i == this.indexChange){
+                        if(i == idx){
                             this.$refs.dq.$refs.tree.setCheckedKeys(this.areaDataObj[i])
                         }
                     }
@@ -287,6 +288,7 @@
                     this.ruleForm.bigData[this.indexChange].areaCode = areaText;
                     this.areaDataObj[this.indexChange] = this.dqArr
                     this.$refs.dq.$refs.tree.setCheckedKeys([])
+                    this.dqArr=[]
                 }
             },
             // 添加确定
