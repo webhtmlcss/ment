@@ -38,7 +38,99 @@ export default {
             userLogo: '../../../static/qqImg.jpg',  //当前登录头像
             userName: '放学别走',  //当前登录用户名
             setting: config.settingURL,  //个人设置URL
+            menu: [
+                {
+                    name: 'Demo列表',
+                    url: '',
+                    expand: false,
+                    children: [
+                        {
+                            name: '笑话列表',
+                            url: '/home'
+                        },
+                        {
+                            name: '老黄历查吉凶',
+                            url: '/date'
+                        },
+                        {
+                            name: '驾照题库',
+                            url: '/car'
+                        },
+                        {
+                            name: '二维码',
+                            url: '/chart'
+                        },
+                        {
+                            name: '新华字典',
+                            url: '/dictionary'
+                        },
+                        {
+                            name: '邮箱',
+                            url: '/email'
+                        },
+                        {
+                            name: '营销签名列表',
+                            url: '/issueList'
+                        },
+                        {
+                            name: '微信授权',
+                            url: '/wechart'
+                        },
+                        {
+                            name: 'echart',
+                            url: '/echart'
+                        },
+                        {
+                            name: '筛选',
+                            url: '/screen'
+                        },
+                        {
+                            name: '地区',
+                            url: '/diqu'
+                        },
+                        {
+                            name: 'elementUI--Tree',
+                            url: '/tree'
+                        },
+                        {
+                            name: 'jgfz',
+                            url: '/jgfz'
+                        },
+                        {
+                            name: 'session',
+                            url: '/session'
+                        }
+                    ]
+                },
+                {
+                    name: 'iview',
+                    url: '',
+                    expand: false,
+                    children:[
+                        {
+                            name: 'time组件',
+                            url: '/timer',
+                        }
+                    ]
+                },
+                {
+                    name: '订购支付',
+                    url: '/psList',
+                    expand: false,
+                    children:[
+                        {
+                            name: '配送列表',
+                            url: '/psList',
+                            expand: true
+                        }
+                    ]
+                }
+            ]
         }
+    },
+    created () {
+        this.$store.dispatch('menuData',this.menu);
+        this.$store.dispatch('list',this.menu);
     },
     components: {
         sidebar,

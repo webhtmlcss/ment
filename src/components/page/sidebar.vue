@@ -1,7 +1,7 @@
 <!-- 树形结构 -->
 <template>
     <ul class="level">
-        <li v-for="(item,index) in menu" :key="index">
+        <li v-for="(item,index) in menuData" :key="index">
             <div class="rel" @click="item.expand = item.expand ? false : true">
                 <router-link :to="item.url">{{item.name}}</router-link>
             </div>
@@ -17,82 +17,10 @@ export default {
     name: 'sidebar',
     data() {
         return {
-            menu: [
-                {
-                    name: 'Demo列表',
-                    url: '',
-                    expand: false,
-                    children: [
-                        {
-                            name: '笑话列表',
-                            url: '/home'
-                        },
-                        {
-                            name: '老黄历查吉凶',
-                            url: '/date'
-                        },
-                        {
-                            name: '驾照题库',
-                            url: '/car'
-                        },
-                        {
-                            name: '二维码',
-                            url: '/chart'
-                        },
-                        {
-                            name: '新华字典',
-                            url: '/dictionary'
-                        },
-                        {
-                            name: '邮箱',
-                            url: '/email'
-                        },
-                        {
-                            name: '营销签名列表',
-                            url: '/issueList'
-                        },
-                        {
-                            name: '微信授权',
-                            url: '/wechart'
-                        },
-                        {
-                            name: 'echart',
-                            url: '/echart'
-                        },
-                        {
-                            name: '筛选',
-                            url: '/screen'
-                        },
-                        {
-                            name: '地区',
-                            url: '/diqu'
-                        },
-                        {
-                            name: 'elementUI--Tree',
-                            url: '/tree'
-                        },
-                        {
-                            name: 'jgfz',
-                            url: '/jgfz'
-                        }
-                    ]
-                },
-                {
-                    name: 'iview',
-                    url: '/',
-                    expand: false,
-                    children:[
-                        {
-                            name: 'time组件',
-                            url: '/timer',
-                        }
-                    ]
-                }
-            ]
+            menuData: this.$store.state.menu.menuData
         }
     },
     created () {
-      this.$store.dispatch('list',this.menu);  
     },
     mounted () {
     },

@@ -4,11 +4,13 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
 import data from './data'
+import menu from './menu'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     modules: {
-        data
+        data,
+        menu
     },
     state: {},
     mutations: {},

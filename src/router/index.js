@@ -13,7 +13,11 @@ import iviewTimer from '@components/page/iview/timer'
 import screen from '@components/page/screen/index'
 import diqu from '@components/page/diqu/diqu'
 import tree from '@components/page/tree/tree'
-import jgfz from '@components/page/jgfz/index'
+import jgfz from '@components/page/jgfz/jgfz'
+import session from '@components/page/session/session'
+import psList from '@components/page/dgzf/psList'
+import add from '@components/page/dgzf/add'
+
 
 Vue.use(Router)
 
@@ -73,6 +77,18 @@ const routes = [
     {
       path: '/jgfz',
       component: jgfz
+    },
+    {
+      path: '/session',
+      component: session
+    },
+    {
+      path: '/psList',
+      component: psList
+    },
+    {
+      path: '/add',
+      component: add
     }
   ]
 

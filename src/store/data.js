@@ -1,8 +1,7 @@
-const LIST_LIST = 'LIST_LIST';
 const state = {
     list: []
 };
-const  mutations = {
+const mutations = {
     getList(state, data) {
         state.list = data;
     }

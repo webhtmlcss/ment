@@ -27,3 +27,41 @@
 .icon-grin:before {
   content: "\e9e9";
 }
+
+
+.vuePage{padding: 10px;}
+
+/* 表格 */
+.el-table {color: #999}
+.el-table__header thead tr{background-color: #fafafa; color:#666; }
+.el-table__header thead tr th{font-weight: normal; background-color: #efefef; color:#666; height: 51px}
+.el-table--small {font-size: 12px;}
+.el-table--mini td, .el-table--mini th{padding: 3px 0}
+.el-table--mini .cell{line-height: 32px;}
+.el-table::before{display: none}
+
+/* 折叠面板 */
+.el-collapse-item__header {background: #f1f1f1;border-bottom: 1px solid #ccc;padding-left: 20px;margin-bottom: 1px;}
+.el-collapse-item__content{padding: 20px;}
+.el-collapse-item__wrap{overflow:visible; border-bottom: none}
+.el-collapse-item__arrow{margin-right: 20px;}
+
+/* switch开关 */
+/* 圆 */
+.m_switchOn {position: relative;width: 70px;height: 26px;line-height: 26px;}
+.m_switchOn .el-switch__label{position: absolute;z-index: 9;display: none;height: 26px;line-height: 26px;top:0;}
+.m_switchOn .el-switch__core{width: 100%!important;height: 26px;border-radius: 26px;}
+.m_switchOn .el-switch__core:after{width: 24px;height: 24px;z-index: 10; top:0}
+.m_switchOn.el-switch.is-checked .el-switch__core::after{margin-left:-25px;}
+.m_switchOn .el-switch__label--left.is-active{display: inline-block;color: #666;right: 0;margin:0;width:calc(100% - 24px);text-align: center}
+.m_switchOn .el-switch__label--right.is-active{display: inline-block;color: #fff;left: 0;margin:0;width:calc(100% - 24px);text-align: center}
+.m_switchOn .el-switch__label *{font-size: 12px;}
+/* 方 */
+.switchOn {position: relative;width: 64px;height: 26px;line-height: 26px;}
+.switchOn .el-switch__label{position: absolute;z-index: 9;display: none;height: 26px;line-height: 26px;top:0;}
+.switchOn .el-switch__core{width: 100%!important;height: 26px;border-radius: 4px;}
+.switchOn .el-switch__core:after{width: 26px;height: 22px;border-radius: 4px;z-index: 10;}
+.switchOn.el-switch.is-checked .el-switch__core::after{margin-left:-27px;}
+.switchOn .el-switch__label--left.is-active{display: inline-block;color: #666;right: 0;margin:0;width:calc(100% - 26px);text-align: center}
+.switchOn .el-switch__label--right.is-active{display: inline-block;color: #fff;left: 0;margin:0;width:calc(100% - 26px);text-align: center}
+.switchOn .el-switch__label *{font-size: 12px;}
